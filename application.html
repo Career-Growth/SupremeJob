@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบฟอร์มสมัครงาน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="application.css">
+</head>
+<body>
+  <main class="application-card">
+    <a class="back-link" href="./index.html">← กลับหน้าตำแหน่งงาน</a>
+    <span class="tag">APPLICATION</span>
+    <h1>สมัครงานกับเรา</h1>
+    <p class="position">ตำแหน่ง: <strong id="position-name">ตำแหน่งที่สนใจ</strong></p>
+
+    <div class="notice">
+      <strong>หน้าตัวอย่าง</strong>
+      <p>หน้านี้เป็นหน้าปลายทางชั่วคราว เมื่อมี URL แบบฟอร์มจริงแล้วสามารถนำมาเปลี่ยนได้ทันที</p>
+    </div>
+
+    <form id="demo-form">
+      <label>
+        ชื่อ-นามสกุล
+        <input type="text" placeholder="กรอกชื่อและนามสกุล" required>
+      </label>
+      <label>
+        อีเมล
+        <input type="email" placeholder="name@example.com" required>
+      </label>
+      <label>
+        เบอร์โทรศัพท์
+        <input type="tel" placeholder="08x-xxx-xxxx" required>
+      </label>
+      <button type="submit">ส่งใบสมัครตัวอย่าง</button>
+    </form>
+
+    <p class="form-message" id="form-message" role="status"></p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const position = params.get("position");
+    if (position) {
+      document.querySelector("#position-name").textContent = position;
+    }
+
+    document.querySelector("#demo-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#form-message").textContent =
+        "นี่เป็นแบบฟอร์มตัวอย่าง จึงยังไม่มีการส่งหรือบันทึกข้อมูล";
+    });
+  </script>
+</body>
+</html>
